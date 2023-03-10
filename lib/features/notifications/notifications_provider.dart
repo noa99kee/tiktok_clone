@@ -17,7 +17,7 @@ class NotificationsProvider extends FamilyAsyncNotifier<void, BuildContext> {
     final user = ref.read(authRepo).user;
     print('NotificationsProvider user:$user');
     if (user == null) return;
-    await _db.collection("users").doc(user!.uid).update({"token": token});
+    await _db.collection("users").doc(user.uid).update({"token": token});
   }
 
   Future<void> initListeners(BuildContext context) async {
